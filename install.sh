@@ -6,14 +6,24 @@ ZSH_CUSTOM="${ZSH_CUSTOM:-$ZSH/custom}"
 
 install_zsh_theme() {
     local repo_url=$1
-    git clone --quiet ${repo_url} ${ZSH_CUSTOM}/themes/$(basename "${repo_url}" .git)
-    echo "Downloaded zsh theme \"$(basename "${repo_url}" .git)\""
+    local theme_name="$(basename "${repo_url}" .git)"
+    local theme_dir="${ZSH_CUSTOM}/themes/${theme_name}"
+
+    if [ ! -d "${theme_dir}" ]; then
+        git clone --quiet ${repo_url} ${theme_dir}
+        echo "Downloaded zsh theme \"${theme_name}\""
+    fi
 }
 
 install_zsh_plugin() {
     local repo_url=$1
-    git clone --quiet ${repo_url} ${ZSH_CUSTOM}/plugins/$(basename "${repo_url}" .git)
-    echo "Downloaded zsh plugin \"$(basename "${repo_url}" .git)\""
+    local plugin_name="$(basename "${repo_url}" .git)"
+    local plugin_dir="${ZSH_CUSTOM}/plugins/${plugin_name}"
+    
+    if [ ! -d "${plugin_dir}" ]; then
+        git clone --quiet ${repo_url} ${plugin_dir}
+        echo "Downloaded zsh plugin \"${plugin_name}\""
+    fi
 }
 
 install_dotfile() {
