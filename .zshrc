@@ -30,9 +30,10 @@ bindkey '\eOA' up-line-or-history
 bindkey '\e[B' down-line-or-history
 bindkey '\eOB' down-line-or-history
 
-# use tab instead of right arrow to accept autosuggestion
+# use tabs instead of right arrow to accept autosuggestion
 # (due to zsh-autosuggestions)
-bindkey '^I' autosuggest-accept
+bindkey '^I'   complete-word
+bindkey '^I^I' autosuggest-accept
 
 # ===================================
 # Podman
