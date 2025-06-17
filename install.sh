@@ -52,6 +52,9 @@ configure_zsh() {
 
     install_dotfile .zshrc
     install_dotfile .p10k.zsh
+
+    # mac-specific, disable last login message when opening terminal
+    install_dotfile .hushlogin
 }
 
 configure_git() {
