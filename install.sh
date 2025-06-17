@@ -64,6 +64,7 @@ main() {
     configure_zsh
     configure_git
     echo "Installation complete!"
+    echo "Please run \"source ~/.zshrc\" to apply any changes"
 }
 
 main
