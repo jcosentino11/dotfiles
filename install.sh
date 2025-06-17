@@ -1,5 +1,8 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 set -e
+
+ZSH="${ZSH:-$HOME/.oh-my-zsh}"
+ZSH_CUSTOM="${ZSH_CUSTOM:-$ZSH/custom}"
 
 install_zsh_theme() {
     local repo_url=$1
@@ -27,7 +30,7 @@ install_dotfile() {
 }
 
 configure_zsh() {
-    if [ -z "${ZSH}" ]; then
+    if [ ! -d "${ZSH}" ]; then
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     fi
 
