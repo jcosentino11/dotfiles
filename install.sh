@@ -27,7 +27,9 @@ install_dotfile() {
 }
 
 configure_zsh() {
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    if [ -z "${ZSH}" ]; then
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    fi
 
     install_zsh_theme https://github.com/romkatv/powerlevel10k.git
     install_zsh_plugin https://github.com/marlonrichert/zsh-autocomplete.git
