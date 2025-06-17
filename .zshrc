@@ -4,8 +4,7 @@
 
 export plugins=(
     git 
-    gpg-agent 
-    zsh-syntax-highlighting  
+    gpg-agent
     fast-syntax-highlighting
     zsh-autocomplete
     zsh-autosuggestions
@@ -23,6 +22,17 @@ source $ZSH/oh-my-zsh.sh
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# restore default zsh history behavior
+# (due to zsh-autocomplete)
+bindkey '\e[A' up-line-or-history
+bindkey '\eOA' up-line-or-history
+bindkey '\e[B' down-line-or-history
+bindkey '\eOB' down-line-or-history
+
+# use tab instead of right arrow to accept autosuggestion
+# (due to zsh-autosuggestions)
+bindkey '^I' autosuggest-accept
 
 # ===================================
 # Podman

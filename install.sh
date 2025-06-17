@@ -45,10 +45,10 @@ configure_zsh() {
     fi
 
     install_zsh_theme https://github.com/romkatv/powerlevel10k.git
-    install_zsh_plugin https://github.com/marlonrichert/zsh-autocomplete.git
-    install_zsh_plugin https://github.com/zsh-users/zsh-syntax-highlighting.git
+
     install_zsh_plugin https://github.com/zdharma-continuum/fast-syntax-highlighting.git
-    install_zsh_plugin https://github.com/zsh-users/zsh-autosuggestions.git
+    install_zsh_plugin https://github.com/marlonrichert/zsh-autocomplete.git
+    install_zsh_plugin https://github.com/zsh-users/zsh-autosuggestions
 
     install_dotfile .zshrc
     install_dotfile .p10k.zsh

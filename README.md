@@ -13,4 +13,3 @@ To configure the install script, `export` any of the following environment varia
 | Variable | Default | Description |
 |----------|---------|-------------|
 | `DOTFILES_INCLUDE_PERSONAL` | `false` | When `true`, include configs that are only meaningful to me. |
-
