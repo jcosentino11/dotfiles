@@ -1,0 +1,6 @@
+[user]
+	name = Joseph Cosentino
+	email = jcosentino11@pm.me
+	signingkey = 9F235FD80289C9CC
+[commit]
+	gpgsign = true
