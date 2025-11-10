@@ -10,6 +10,9 @@ export plugins=(
     zsh-autosuggestions
 )
 
+# make autocomplete less agressive
+zstyle ':autocomplete:*' min-input 3
+
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
