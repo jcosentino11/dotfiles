@@ -1,9 +1,9 @@
 # ===================================
-# Oh My ZSH 
+# Oh My ZSH
 # ===================================
 
 export plugins=(
-    git 
+    git
     gpg-agent
     fast-syntax-highlighting
     zsh-autocomplete
@@ -21,12 +21,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+zstyle ':omz:update' mode auto
+
 export ZSH="$HOME/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
-
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # restore default zsh history behavior
 # (due to zsh-autocomplete)
@@ -40,16 +38,20 @@ bindkey '\eOB' down-line-or-history
 bindkey '^I'   complete-word
 bindkey '^I^I' autosuggest-accept
 
+
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
 # ===================================
-# Podman
+# Custom Aliases
 # ===================================
 
 alias docker=podman
+alias python=python3
 
 # ===================================
-# LLMs
+# direnv
 # ===================================
 
-# aider config: https://aider.chat/docs/llms/ollama.html
-export OLLAMA_API_BASE=http://127.0.0.1:11434
-export OLLAMA_CONTEXT_LENGTH=8192
+eval "$(direnv hook zsh)"
