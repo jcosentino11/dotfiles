@@ -28,15 +28,18 @@ install_zsh_plugin() {
 
 install_dotfile() {
     local dotfile=$1
+    local target="${HOME}/${dotfile}"
 
-    if [ -f "${HOME}/${dotfile}" ]; then
-        local backup="${HOME}/${dotfile}.backup.$(date +%Y%m%d_%H%M%S)"
-        cp "${HOME}/${dotfile}" "${backup}"
+    mkdir -p "$(dirname "${target}")"
+
+    if [ -f "${target}" ]; then
+        local backup="${target}.backup.$(date +%Y%m%d_%H%M%S)"
+        cp "${target}" "${backup}"
         echo "Created backup \"${backup}\""
     fi
-    
-    curl -fsSL https://raw.githubusercontent.com/jcosentino11/dotfiles/main/${dotfile} -o ${HOME}/${dotfile}
-    echo "Downloaded \"${HOME}/${dotfile}\""
+
+    curl -fsSL https://raw.githubusercontent.com/jcosentino11/dotfiles/main/${dotfile} -o ${target}
+    echo "Downloaded \"${target}\""
 }
 
 configure_zsh() {
@@ -51,6 +54,7 @@ configure_zsh() {
     install_zsh_plugin https://github.com/zsh-users/zsh-autosuggestions
 
     install_dotfile .zshrc
+    install_dotfile .zprofile
     install_dotfile .p10k.zsh
 
     install_dotfile .hushlogin
@@ -58,11 +62,18 @@ configure_zsh() {
 
 configure_git() {
     install_dotfile .gitconfig
+    install_dotfile .config/git/ignore
+}
+
+configure_claude() {
+    install_dotfile .claude/CLAUDE.md
+    install_dotfile .claude/settings.json
 }
 
 main() {
     configure_zsh
     configure_git
+    configure_claude
     echo "Installation complete!"
     echo "Please run \"source ~/.zshrc\" to apply any changes"
 }
