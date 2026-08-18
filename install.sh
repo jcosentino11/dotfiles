@@ -57,11 +57,7 @@ configure_zsh() {
 }
 
 configure_git() {
-    install_dotfile .gitconfig.example
-
-    if [ ! -f "${HOME}/.gitconfig" ]; then
-        echo "No ~/.gitconfig found. Copy ~/.gitconfig.example to ~/.gitconfig and fill in your name/email."
-    fi
+    install_dotfile .gitconfig
 }
 
 main() {

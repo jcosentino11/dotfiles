@@ -10,6 +10,7 @@ export plugins=(
     zsh-autosuggestions
 )
 
+# make autocomplete less agressive
 zstyle ':autocomplete:*' min-input 3
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -25,11 +26,15 @@ zstyle ':omz:update' mode auto
 export ZSH="$HOME/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
 
+# restore default zsh history behavior
+# (due to zsh-autocomplete)
 bindkey '\e[A' up-line-or-history
 bindkey '\eOA' up-line-or-history
 bindkey '\e[B' down-line-or-history
 bindkey '\eOB' down-line-or-history
 
+# use tabs instead of right arrow to accept autosuggestion
+# (due to zsh-autosuggestions)
 bindkey '^I'   complete-word
 bindkey '^I^I' autosuggest-accept
 
