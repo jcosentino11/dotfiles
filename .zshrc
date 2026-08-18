@@ -44,13 +44,6 @@ alias docker=podman
 alias python=python3
 
 # ===================================
-# LLMs
-# ===================================
-
-export OLLAMA_API_BASE=http://127.0.0.1:11434
-export OLLAMA_CONTEXT_LENGTH=8192
-
-# ===================================
 # direnv
 # ===================================
 

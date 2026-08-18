@@ -6,10 +6,6 @@
 
 ---
 
-### Configuration
+### Git config
 
-To configure the install script, `export` any of the following environment variables:
-
-| Variable | Default | Description |
-|----------|---------|-------------|
-| `DOTFILES_INCLUDE_PERSONAL` | `false` | When `true`, include configs that are only meaningful to me. |
+The installer drops a `~/.gitconfig.example` template (name/email placeholders, a real signing key ID). Copy it to `~/.gitconfig` and fill in your details; the installer never overwrites an existing `~/.gitconfig`.

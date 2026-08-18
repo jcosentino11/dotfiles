@@ -57,8 +57,10 @@ configure_zsh() {
 }
 
 configure_git() {
-    if [ "${DOTFILES_INCLUDE_PERSONAL:-false}" = "true" ]; then
-        install_dotfile .gitconfig
+    install_dotfile .gitconfig.example
+
+    if [ ! -f "${HOME}/.gitconfig" ]; then
+        echo "No ~/.gitconfig found. Copy ~/.gitconfig.example to ~/.gitconfig and fill in your name/email."
     fi
 }
 
