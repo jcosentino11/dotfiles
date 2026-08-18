@@ -1,6 +1,6 @@
 [user]
-	name = Joseph Cosentino
-	email = jcosentino11@pm.me
+	name = Your Name
+	email = you@example.com
 	signingkey = 9F235FD80289C9CC
 [commit]
 	gpgsign = true
